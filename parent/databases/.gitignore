@@ -53,7 +53,7 @@ buildNumber.properties
 
 
 .settings
-.settings
 /.settings
 /.settings/*
 # End of https://www.gitignore.io/api/java,maven,java-web,code-java
+/databases.iml
