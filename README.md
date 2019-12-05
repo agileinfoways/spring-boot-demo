@@ -5,11 +5,8 @@ This is an example project to show what Clean Architecture would look like (in S
 **Table of Contents**
 * [Why Clean Architecture?](#why-clean-architecture)
 * [Application Structure](#application-structure)
-* [Testing Strategy](#testing-strategy)
 * [Building and Running the application](#building-and-running-the-application)
 * [The example domain](#the-example-domain)
-* [Resources](#resources)
-* [Contacts](#contacts)
 
 ***
 
@@ -49,11 +46,13 @@ Of course, it comes at a cost:
 <img src="docs/images/clean-architecture-diagram-2.png" alt="clean-architecture-diagram-2.png" width="700">
 
 ##### Core: Entities
+* Core entites belong to common module
 * Represent your domain object
 * Apply only logic that is applicable in general to the whole entity (e.g. validating the format of an hostname)
 * Plain java objects: no frameworks, no annotations
 
 ##### Core: Use Cases
+* Core Use case belongs to business and validation is perform on service classes.
 * Represent your business actions, it’s what you can do with the application. Expect one use case for each business action
 * Pure business logic, plain java (expect maybe some utils libraries like StringUtils)
 * Define interfaces for the data that they need in order to apply some logic. One or more dataproviders will implement the interface, but the use case doesn’t know where the data is coming from
@@ -61,6 +60,7 @@ Of course, it comes at a cost:
 * Throws business exceptions
 
 ##### Dataproviders
+* Dataprovider is on database module.
 * Retrieve and store data from and to a number of sources (database, network devices, file system, 3rd parties, etc.)
 * Implement the interfaces defined by the use case
 * Use whatever framework is most appropriate (they are going to be isolated here anyway)
@@ -86,15 +86,15 @@ Of course, it comes at a cost:
 ```
 * running the application (from the jar, after having built it):
 ```
-java -jar application/build/clean-architecture-example.war
+java -jar application/build/cms.war
 
 ```
 Or put war in tomcate ``` /webapps``` folder
 * running the application (on the fly):
 ```
-./gradlew bootRun
+./mvn spring-boot:run
 ```
-* running the application (in the IDE): open and run the main class
+* running the application (in the IDE): open and run the main class in webservice modules.
 ```
 com.claims.manage.ClaimManagementApplication
 ```
@@ -104,7 +104,7 @@ Once the application is running, you can:
 
 
 ##### Importing the project in IntelliJ
-* Simply open folder and import project 
+* Simply open parent folder and import project, intelliJ will ask configuration for maven apply as maven project. 
 
 
 
