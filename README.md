@@ -110,7 +110,7 @@ Once the application is running, you can:
 
 ## The example domain
 
-This example application is a simplified version of a real production application that we develop at Agileinfoways. The domain is a telecommunication domain. claim management system use cases:
+This example application is a simplified version of a real production application that we develop at Agileinfoways. The domain is a claim management system use cases:
 * We will have number of surgeries option available on insturance claims
 * We also have number of treatments option available on insturance claims
 
